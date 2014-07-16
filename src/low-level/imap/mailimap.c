@@ -2068,6 +2068,14 @@ mailimap_uid_search(mailimap * session, const char * charset,
 }
 
 LIBETPAN_EXPORT
+int
+mailimap_uid_search_utf8(mailimap * session, const char * charset,
+                    struct mailimap_search_key * key, clist ** result)
+{
+  return mailimap_uid_search_modseq_utf8(session, charset, key, result, NULL);
+}
+
+LIBETPAN_EXPORT
 void mailimap_search_result_free(clist * search_result)
 {
   clist_foreach(search_result, (clist_func) free, NULL);

@@ -490,6 +490,29 @@ mailimap_uid_search(mailimap * session, const char * charset,
     struct mailimap_search_key * key, clist ** result);
 
 /*
+   mailimap_uid_search_utf8()
+   
+   
+   All mails that match the given criteria will be returned
+   their unique identifiers in the result list.
+   
+   @param session  IMAP session
+   @param charset  This indicates the charset of the strings that appears
+   in the searching criteria
+   @param key      This is the searching criteria
+   @param result   The result is a clist of (uint32_t *) and will be
+   stored in (* result).
+   
+   @return the return code is one of MAILIMAP_ERROR_XXX or
+   MAILIMAP_NO_ERROR codes
+*/
+  
+LIBETPAN_EXPORT
+int
+mailimap_uid_search_utf8(mailimap * session, const char * charset,
+    struct mailimap_search_key * key, clist ** result);
+  
+/*
    mailimap_search_result_free()
 
    This function will free the result of the a search.
