@@ -2820,7 +2820,7 @@ int mailimap_search_key_send_utf8(mailstream * fd,
       r = mailimap_space_send(fd);
       if (r != MAILIMAP_NO_ERROR)
         return r;
-      r = mailimap_search_key_send(fd, key->sk_data.sk_not);
+      r = mailimap_search_key_send_utf8(fd, key->sk_data.sk_not);
       if (r != MAILIMAP_NO_ERROR)
         return r;
       return MAILIMAP_NO_ERROR;
@@ -2832,13 +2832,13 @@ int mailimap_search_key_send_utf8(mailstream * fd,
       r = mailimap_space_send(fd);
       if (r != MAILIMAP_NO_ERROR)
         return r;
-      r = mailimap_search_key_send(fd, key->sk_data.sk_or.sk_or1);
+      r = mailimap_search_key_send_utf8(fd, key->sk_data.sk_or.sk_or1);
       if (r != MAILIMAP_NO_ERROR)
         return r;
       r = mailimap_space_send(fd);
       if (r != MAILIMAP_NO_ERROR)
         return r;
-      r = mailimap_search_key_send(fd, key->sk_data.sk_or.sk_or2);
+      r = mailimap_search_key_send_utf8(fd, key->sk_data.sk_or.sk_or2);
       if (r != MAILIMAP_NO_ERROR)
         return r;
       return MAILIMAP_NO_ERROR;
@@ -2951,7 +2951,7 @@ int mailimap_search_key_send_utf8(mailstream * fd,
         return r;
       
       r = mailimap_struct_spaced_list_send(fd, key->sk_data.sk_multiple,
-                                           (mailimap_struct_sender *) mailimap_search_key_send);
+                                           (mailimap_struct_sender *) mailimap_search_key_send_utf8);
       if (r != MAILIMAP_NO_ERROR)
         return r;
       
